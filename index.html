@@ -25,10 +25,19 @@
   </style>
 </head>
 <body>
-  <iframe 
-    src="https://script.google.com/macros/s/AKfycbzkcflbnYLH31F6Y90TI87r9Pwl1njvuDnfbsHXuk0S7v0KpISkaqO8pUN6V9I_YsMN/exec" 
+  <iframe
+    id="gasFrame"
+    src=""
     allow="geolocation *; microphone *; camera *; clipboard-read; clipboard-write"
     allowfullscreen>
   </iframe>
+  <script>
+    (function () {
+      const APP_URL = "https://script.google.com/macros/s/AKfycbzkcflbnYLH31F6Y90TI87r9Pwl1njvuDnfbsHXuk0S7v0KpISkaqO8pUN6V9I_YsMN/exec";
+      const qs = new URLSearchParams(window.location.search);
+      qs.set("pmsHost", window.location.origin + window.location.pathname);
+      document.getElementById("gasFrame").src = APP_URL + "?" + qs.toString();
+    })();
+  </script>
 </body>
 </html>
